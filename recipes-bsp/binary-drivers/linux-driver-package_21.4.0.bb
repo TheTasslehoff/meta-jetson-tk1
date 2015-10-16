@@ -55,6 +55,8 @@ do_install () {
     mkdir ${D}/etc/rcS.d/
     cp ${WORKDIR}/nv.conf ${D}/etc/init.d
     ln -s /etc/init.d/nv.conf ${D}/etc/rcS.d/S40nv
+    echo "include /etc/ld.so.conf.d/nvidia-tegra.conf" > ${D}/etc/ld.so.conf
+    echo "/usr/lib/arm-linux-gnueabihf/tegra" > ${D}/etc/ld.so.conf.d/nvidia-tegra.conf
 }
 
 do_populate_sysroot () {
